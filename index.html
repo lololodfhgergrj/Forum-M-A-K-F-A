@@ -7,16 +7,17 @@
     <title>M A K F A solum tu | Форум семьи | Server #81 Taganrog</title>
     <style>
         :root {
-            --xf-bg: #18191e;
-            --xf-header: #141519;
+            --xf-bg: #16171b;
+            --xf-header: #121317;
             --xf-block-bg: #1d1e24;
             --xf-block-header: #23252d;
-            --xf-block-hover: #23252c;
+            --xf-block-hover: #262830;
             --xf-accent: #ff6b00;
             --xf-accent-hover: #ff852e;
+            --xf-accent-soft: rgba(255, 107, 0, 0.12);
             --xf-text: #e4e6eb;
-            --xf-text-muted: #9f9f9f;
-            --xf-border: #2c2f38;
+            --xf-text-muted: #9a9ba3;
+            --xf-border: #2a2c35;
             --server-badge: #e67e22;
         }
 
@@ -29,113 +30,22 @@
 
         body {
             background-color: var(--xf-bg);
+            background-image: radial-gradient(circle at 15% 0%, rgba(255, 107, 0, 0.06), transparent 40%),
+                               radial-gradient(circle at 85% 10%, rgba(255, 107, 0, 0.04), transparent 35%);
             color: var(--xf-text);
             line-height: 1.6;
         }
 
-        /* ===== Экран входа / регистрации ===== */
-        #authScreen {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .auth-card {
-            background-color: var(--xf-block-bg);
-            border: 1px solid var(--xf-border);
-            border-radius: 8px;
-            width: 100%;
-            max-width: 380px;
-            padding: 30px 25px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-        }
-
-        .auth-card h2 {
-            text-align: center;
-            color: #fff;
-            font-size: 18px;
-            margin-bottom: 6px;
-        }
-
-        .auth-card .auth-sub {
-            text-align: center;
-            color: var(--xf-text-muted);
-            font-size: 12px;
-            margin-bottom: 20px;
-        }
-
-        .auth-tabs {
-            display: flex;
-            margin-bottom: 20px;
-            border: 1px solid var(--xf-border);
-            border-radius: 6px;
-            overflow: hidden;
-        }
-
-        .auth-tab {
-            flex: 1;
-            text-align: center;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: bold;
-            color: var(--xf-text-muted);
-            background-color: var(--xf-header);
-        }
-
-        .auth-tab.active {
-            color: #fff;
-            background-color: var(--xf-accent);
-        }
-
-        .auth-form { display: none; }
-        .auth-form.active { display: block; }
-
-        .auth-error {
-            display: none;
-            background-color: rgba(231, 76, 60, 0.2);
-            border: 1px solid #e74c3c;
-            color: #e74c3c;
-            padding: 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .user-badge {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 13px;
-            color: var(--xf-text-muted);
-        }
-
-        .user-badge b { color: #fff; }
-
-        .btn-logout {
-            background-color: transparent;
-            color: var(--xf-text-muted);
-            border: 1px solid var(--xf-border);
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 11px;
-        }
-
-        .btn-logout:hover { border-color: #e74c3c; color: #e74c3c; }
-
         /* Шапка форума */
         header {
-            background-color: var(--xf-header);
+            background: linear-gradient(180deg, var(--xf-header), #17181d);
             border-bottom: 3px solid var(--xf-accent);
-            padding: 15px 30px;
+            padding: 16px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.55);
+            position: relative;
         }
 
         .logo-area {
@@ -145,18 +55,22 @@
         }
 
         .server-badge {
-            background-color: var(--server-badge);
+            background: linear-gradient(135deg, var(--server-badge), #c9640f);
             color: #fff;
-            padding: 4px 10px;
+            padding: 4px 11px;
             border-radius: 4px;
             font-weight: bold;
             font-size: 13px;
             text-transform: uppercase;
+            letter-spacing: 0.3px;
+            box-shadow: 0 2px 6px rgba(230, 126, 34, 0.35);
         }
 
         .logo-title h1 {
-            font-size: 20px;
+            font-size: 21px;
             color: #fff;
+            letter-spacing: 1px;
+            text-shadow: 0 0 18px rgba(255, 107, 0, 0.35);
         }
 
         .logo-title span {
@@ -164,15 +78,31 @@
             color: var(--xf-text-muted);
         }
 
-        .header-right {
+        .server-status {
+            font-size: 13px;
+            color: var(--xf-text-muted);
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 6px;
+        }
+
+        .status-dot-live {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #2ecc71;
+            box-shadow: 0 0 6px #2ecc71;
+            animation: pulseDot 1.8s ease-in-out infinite;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
         }
 
         /* Навигация */
         .forum-nav {
-            background-color: #1b1c21;
+            background-color: #18191e;
             padding: 12px 30px;
             display: flex;
             gap: 10px;
@@ -191,10 +121,70 @@
             text-decoration: underline;
         }
 
+        /* ===== Баннер семьи ===== */
+        .family-hero {
+            max-width: 1200px;
+            margin: 25px auto 0;
+            padding: 0 15px;
+        }
+
+        .family-hero-inner {
+            background: linear-gradient(135deg, rgba(255, 107, 0, 0.14), rgba(29, 30, 36, 0.95));
+            border: 1px solid var(--xf-border);
+            border-radius: 8px;
+            padding: 22px 26px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+        }
+
+        .family-hero-text h2 {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .family-hero-text p {
+            color: var(--xf-text-muted);
+            font-size: 13px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            background-color: rgba(20, 21, 25, 0.8);
+            border: 1px solid var(--xf-border);
+            border-radius: 6px;
+            padding: 8px 14px;
+            text-align: center;
+            min-width: 86px;
+        }
+
+        .hero-stat b {
+            display: block;
+            color: var(--xf-accent);
+            font-size: 16px;
+        }
+
+        .hero-stat span {
+            font-size: 10px;
+            color: var(--xf-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
         /* Контейнер */
         .container {
             max-width: 1200px;
-            margin: 25px auto;
+            margin: 20px auto 25px;
             padding: 0 15px;
             display: grid;
             grid-template-columns: 1fr 300px;
@@ -214,11 +204,11 @@
             border-radius: 6px;
             margin-bottom: 25px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.35);
         }
 
         .category-header {
-            background-color: var(--xf-block-header);
+            background: linear-gradient(90deg, var(--xf-block-header), #1f2027);
             padding: 12px 20px;
             font-weight: bold;
             font-size: 15px;
@@ -232,11 +222,12 @@
         .thread-item {
             padding: 16px 20px;
             border-bottom: 1px solid var(--xf-border);
+            border-left: 3px solid transparent;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            transition: background 0.15s;
+            transition: background 0.15s, border-color 0.15s, padding-left 0.15s;
         }
 
         .thread-item:last-child {
@@ -245,6 +236,8 @@
 
         .thread-item:hover {
             background-color: var(--xf-block-hover);
+            border-left-color: var(--xf-accent);
+            padding-left: 24px;
         }
 
         .thread-title {
@@ -289,10 +282,11 @@
             border: 1px solid var(--xf-border);
             border-radius: 6px;
             overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.35);
         }
 
         .post-header {
-            background-color: var(--xf-block-header);
+            background: linear-gradient(90deg, var(--xf-block-header), #1f2027);
             padding: 15px 20px;
             border-bottom: 1px solid var(--xf-border);
         }
@@ -329,6 +323,7 @@
             font-weight: bold;
             color: var(--xf-accent);
             border: 2px solid var(--xf-accent);
+            box-shadow: 0 0 14px rgba(255, 107, 0, 0.25);
         }
 
         .author-name {
@@ -358,9 +353,10 @@
             border-radius: 6px;
             padding: 12px;
             text-align: center;
+            transition: border-color 0.15s, transform 0.15s;
         }
 
-        .auto-card:hover { border-color: var(--xf-accent); }
+        .auto-card:hover { border-color: var(--xf-accent); transform: translateY(-2px); }
 
         .form-group { margin-bottom: 15px; }
 
@@ -384,11 +380,7 @@
         .form-group input:focus, .form-group textarea:focus {
             border-color: var(--xf-accent);
             outline: none;
-        }
-
-        .form-group input[readonly] {
-            color: var(--xf-text-muted);
-            cursor: not-allowed;
+            box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.12);
         }
 
         /* Загрузка фото */
@@ -487,7 +479,7 @@
         .photo-clear:hover { border-color: #e74c3c; color: #e74c3c; }
 
         .btn-submit {
-            background-color: var(--xf-accent);
+            background: linear-gradient(135deg, var(--xf-accent), #e35e00);
             color: #fff;
             border: none;
             padding: 10px 20px;
@@ -495,11 +487,12 @@
             font-weight: bold;
             font-size: 14px;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: filter 0.2s, transform 0.1s;
             width: 100%;
         }
 
-        .btn-submit:hover { background-color: var(--xf-accent-hover); }
+        .btn-submit:hover { filter: brightness(1.1); }
+        .btn-submit:active { transform: scale(0.99); }
 
         .alert-status {
             display: none;
@@ -520,6 +513,7 @@
             border-radius: 6px;
             padding: 15px;
             margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .sidebar-block h4 {
@@ -547,6 +541,7 @@
             font-weight: bold;
             margin-bottom: 15px;
             display: inline-block;
+            transition: background 0.15s;
         }
 
         .btn-back:hover { background-color: rgba(255, 107, 0, 0.1); }
@@ -598,289 +593,24 @@
             border-radius: 50%;
             display: inline-block;
             box-shadow: 0 0 8px #2ecc71;
+            animation: pulseDot 1.8s ease-in-out infinite;
         }
 
-        /* ===== Таблица участников ===== */
-        .members-wrap {
+        /* Футер */
+        footer {
             max-width: 1200px;
-            margin: 0 auto 30px;
-            padding: 0 15px;
-        }
-
-        .members-hint {
-            font-size: 12px;
-            color: var(--xf-text-muted);
-            padding: 12px 20px;
-            border-top: 1px solid var(--xf-border);
-            background-color: var(--xf-header);
-        }
-
-        .members-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .members-table th {
-            text-align: left;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--xf-text-muted);
-            padding: 10px 20px;
-            border-bottom: 1px solid var(--xf-border);
-        }
-
-        .members-table td {
-            padding: 12px 20px;
-            border-bottom: 1px solid var(--xf-border);
-            font-size: 13px;
-            vertical-align: middle;
-        }
-
-        .members-table tr:last-child td { border-bottom: none; }
-
-        .member-row-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .member-avatar {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #fff;
-            font-size: 14px;
-            flex-shrink: 0;
-        }
-
-        .member-nick {
-            font-weight: 600;
-            color: #fff;
-        }
-
-        .unread-badge {
-            background-color: #e74c3c;
-            color: #fff;
-            font-size: 11px;
-            font-weight: bold;
-            border-radius: 10px;
-            padding: 2px 7px;
-            margin-left: 4px;
-        }
-
-        .btn-message {
-            background-color: var(--xf-accent);
-            color: #fff;
-            border: none;
-            padding: 6px 14px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: bold;
-            cursor: pointer;
-            white-space: nowrap;
-        }
-
-        .btn-message:hover { background-color: var(--xf-accent-hover); }
-
-        .members-empty {
-            padding: 20px;
-            text-align: center;
-            color: var(--xf-text-muted);
-            font-size: 13px;
-        }
-
-        /* ===== Окно переписки ===== */
-        .chat-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.6);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .chat-overlay.active { display: flex; }
-
-        .chat-modal {
-            background-color: var(--xf-block-bg);
-            border: 1px solid var(--xf-border);
-            border-radius: 8px;
-            width: 100%;
-            max-width: 420px;
-            max-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .chat-header {
-            background-color: var(--xf-block-header);
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid var(--xf-border);
-        }
-
-        .chat-header-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .chat-title {
-            color: #fff;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        .btn-chat-close {
-            background: transparent;
-            border: none;
-            color: var(--xf-text-muted);
-            font-size: 20px;
-            cursor: pointer;
-            line-height: 1;
-        }
-
-        .btn-chat-close:hover { color: #e74c3c; }
-
-        .chat-messages {
-            flex: 1;
-            overflow-y: auto;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            min-height: 200px;
-        }
-
-        .chat-bubble {
-            max-width: 75%;
-            padding: 8px 12px;
-            border-radius: 12px;
-            font-size: 13px;
-            word-break: break-word;
-        }
-
-        .chat-bubble.own {
-            align-self: flex-end;
-            background-color: var(--xf-accent);
-            color: #fff;
-            border-bottom-right-radius: 3px;
-        }
-
-        .chat-bubble.other {
-            align-self: flex-start;
-            background-color: #141519;
-            color: var(--xf-text);
-            border-bottom-left-radius: 3px;
-        }
-
-        .chat-bubble-time {
-            display: block;
-            font-size: 10px;
-            opacity: 0.7;
-            margin-top: 4px;
-        }
-
-        .chat-empty {
+            margin: 10px auto 30px;
+            padding: 18px 15px;
             text-align: center;
             color: var(--xf-text-muted);
             font-size: 12px;
-            padding: 20px 0;
-        }
-
-        .chat-input-row {
-            display: flex;
-            gap: 8px;
-            padding: 12px;
             border-top: 1px solid var(--xf-border);
         }
 
-        .chat-input-row input {
-            flex: 1;
-            padding: 9px 12px;
-            background-color: #141519;
-            border: 1px solid var(--xf-border);
-            border-radius: 4px;
-            color: #fff;
-            font-size: 13px;
-        }
-
-        .chat-input-row input:focus { border-color: var(--xf-accent); outline: none; }
-
-        .chat-input-row button {
-            background-color: var(--xf-accent);
-            color: #fff;
-            border: none;
-            padding: 0 16px;
-            border-radius: 4px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 15px;
-        }
-
-        .chat-input-row button:hover { background-color: var(--xf-accent-hover); }
+        footer b { color: var(--xf-accent); }
     </style>
 </head>
 <body>
-
-    <!-- ===== Экран входа / регистрации ===== -->
-    <div id="authScreen">
-        <div class="auth-card">
-            <h2>M A K F A solum tu</h2>
-            <div class="auth-sub">Вход на форум семьи — только по нику и паролю</div>
-
-            <div class="auth-tabs">
-                <div class="auth-tab active" id="tabLogin" onclick="switchAuthTab('login')">Вход</div>
-                <div class="auth-tab" id="tabRegister" onclick="switchAuthTab('register')">Регистрация</div>
-            </div>
-
-            <div class="auth-error" id="authError"></div>
-
-            <!-- Форма входа -->
-            <form class="auth-form active" id="loginForm" onsubmit="handleLogin(event)">
-                <div class="form-group">
-                    <label>Ник:</label>
-                    <input type="text" id="login_nick" required placeholder="Ваш NickName">
-                </div>
-                <div class="form-group">
-                    <label>Пароль:</label>
-                    <input type="password" id="login_pass" required placeholder="Пароль">
-                </div>
-                <button type="submit" class="btn-submit">Войти</button>
-            </form>
-
-            <!-- Форма регистрации -->
-            <form class="auth-form" id="registerForm" onsubmit="handleRegister(event)">
-                <div class="form-group">
-                    <label>Придумайте ник:</label>
-                    <input type="text" id="reg_nick" required placeholder="Например: Sakurako_Makfa" minlength="3" maxlength="24">
-                </div>
-                <div class="form-group">
-                    <label>Придумайте пароль:</label>
-                    <input type="password" id="reg_pass" required placeholder="Минимум 4 символа" minlength="4">
-                </div>
-                <div class="form-group">
-                    <label>Повторите пароль:</label>
-                    <input type="password" id="reg_pass2" required placeholder="Ещё раз пароль" minlength="4">
-                </div>
-                <button type="submit" class="btn-submit">Зарегистрироваться</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- ===== Весь форум (скрыт, пока человек не вошёл) ===== -->
-    <div id="siteContent" style="display:none;">
 
     <!-- Шапка форума -->
     <header>
@@ -891,20 +621,30 @@
                 <span>Официальный форум семьи Black Russia</span>
             </div>
         </div>
-        <div class="header-right">
-            <div style="font-size: 13px; color: var(--xf-text-muted);">
-                Статус сервера: <span style="color: #2ecc71; font-weight: bold;">● Online</span>
-            </div>
-            <div class="user-badge">
-                Вы вошли как: <b id="currentUserLabel">—</b>
-                <button class="btn-logout" onclick="handleLogout()">Выйти</button>
-            </div>
+        <div class="server-status">
+            Статус сервера: <span class="status-dot-live"></span> <span style="color:#2ecc71; font-weight:bold;">Online</span>
         </div>
     </header>
 
     <!-- Навигация -->
     <div class="forum-nav">
         <a onclick="showForumList()">Главная</a> / <span>Сервер #81 Taganrog</span> / <span>Семьи</span> / <span style="color: #fff;">M A K F A solum tu</span>
+    </div>
+
+    <!-- Баннер семьи -->
+    <div class="family-hero" id="forumHero">
+        <div class="family-hero-inner">
+            <div class="family-hero-text">
+                <h2>M A K F A solum tu</h2>
+                <p>Сплочённая семья на сервере #81 Taganrog • Основатель: Sakurako_Makfa</p>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat"><b>300+</b><span>Участников</span></div>
+                <div class="hero-stat"><b>14</b><span>Слотов авто</span></div>
+                <div class="hero-stat"><b>/fp 373</b><span>База</span></div>
+                <div class="hero-stat"><b id="currentFamilyOnline">45</b><span>Онлайн сейчас</span></div>
+            </div>
+        </div>
     </div>
 
     <!-- Основной контейнер -->
@@ -986,26 +726,35 @@
                     <div class="post-content">
                         <h3 style="color: var(--xf-accent); margin-bottom: 10px;">Приветствуем на официальном портале семьи M A K F A solum tu!</h3>
                         <p style="color: var(--xf-text-muted); margin-bottom: 12px;">
-                            Наша семья — это огромная и сплоченная команда на сервере <b>#81 Taganrog</b>, насчитывающая <b style="color: var(--xf-accent);">более 300+ активных участников</b>.
+                            Наша семья — это огромная и сплоченная команда на сервере <b>#81 Taganrog</b>, насчитывающая <b style="color: var(--xf-accent);">более 300+ активных участников</b>. Мы ценим дисциплину, взаимовыручку и общий настрой на результат — именно это держит семью на плаву уже долгое время.
                         </p>
+
                         <div class="info-box">
                             <h4 style="color: #fff; margin-bottom: 5px;">👑 Руководство семьи:</h4>
                             <p style="color: var(--xf-text-muted);">
-                                <b>Основатель семьи:</b> <span style="color: var(--xf-accent);">Sakurako_Makfa</span><br>
-                                <b>Основные заместители:</b> <span style="color: #fff;">Evgenei_Robin</span>, <span style="color: #fff;">Taku_Malfa</span>, <span style="color: #fff;">Job_Monopoly</span>
+                                <b>Основатель семьи:</b> <span style="color: var(--xf-accent);">Sakurako_Makfa</span> — отвечает за общее управление, выдачу премий и решения по спорным вопросам.<br><br>
+                                <b>Основные заместители:</b> <span style="color: #fff;">Evgenei_Robin</span>, <span style="color: #fff;">Taku_Malfa</span>, <span style="color: #fff;">Job_Monopoly</span> — помогают с организацией боевой активности, контролем автопарка и разбором жалоб.
                             </p>
                         </div>
+
                         <div class="info-box">
                             <h4 style="color: #fff; margin-bottom: 5px;">📍 Семейная база:</h4>
-                            <p style="color: var(--xf-text-muted);">Дом находится по навигатору: <b style="color: var(--xf-accent);">/fp 373</b>.</p>
+                            <p style="color: var(--xf-text-muted);">Дом семьи находится по навигатору: <b style="color: var(--xf-accent);">/fp 373</b>. Здесь собирается состав перед выездами, выдаются премии и решаются внутренние вопросы семьи.</p>
                         </div>
+
                         <div class="info-box">
                             <h4 style="color: #fff; margin-bottom: 5px;">🏎️ Семейный автопарк:</h4>
-                            <p style="color: var(--xf-text-muted);">Развиваем собственный автопарк на <b style="color: var(--xf-accent);">14 слотов</b>.</p>
+                            <p style="color: var(--xf-text-muted);">Развиваем собственный автопарк на <b style="color: var(--xf-accent);">14 слотов</b>. Автомобили пополняются и обновляются силами семьи — подробный список техники смотрите в теме «Автопарк».</p>
                         </div>
+
                         <div class="info-box">
                             <h4 style="color: #fff; margin-bottom: 5px;">⚔️ Боевая активность:</h4>
-                            <p style="color: var(--xf-text-muted);">Наш состав <b style="color: var(--xf-accent);">каждый день выезжает на сражения</b> и битвы за вышки.</p>
+                            <p style="color: var(--xf-text-muted);">Наш состав <b style="color: var(--xf-accent);">каждый день выезжает на сражения</b> и битвы за вышки. Участие в боёвке поощряется премиями — расценки смотрите в теме «Отчёты на премию».</p>
+                        </div>
+
+                        <div class="info-box">
+                            <h4 style="color: #fff; margin-bottom: 5px;">🤝 Почему стоит быть с нами:</h4>
+                            <p style="color: var(--xf-text-muted);">Большой и активный состав, налаженная система премий, собственный автопарк и ежедневная боевая активность — всё это делает M A K F A solum tu одной из заметных семей на сервере #81 Taganrog.</p>
                         </div>
                     </div>
                 </div>
@@ -1052,7 +801,7 @@
                         <form id="bonusForm" onsubmit="sendTelegramMessage(event, 'bonus')">
                             <div class="form-group">
                                 <label>1. Ваш Nick Name:</label>
-                                <input type="text" id="b_nick" required readonly placeholder="Пример: Sakurako_Makfa">
+                                <input type="text" id="b_nick" required placeholder="Пример: Sakurako_Makfa">
                             </div>
                             <div class="form-group">
                                 <label>2. Дата подачи заявки:</label>
@@ -1074,7 +823,7 @@
                                 <div class="photo-previews" id="b_previews"></div>
                                 <button type="button" class="photo-clear" id="b_clear" onclick="clearPhotos('bonus')">Очистить все фото</button>
                             </div>
-                            <button type="submit" id="b_submitBtn" class="btn-submit" style="background-color: #2ecc71; color: #141519;">Отправить отчет на премию</button>
+                            <button type="submit" id="b_submitBtn" class="btn-submit" style="background: linear-gradient(135deg, #2ecc71, #27ae60); color: #0e1a13;">Отправить отчет на премию</button>
                         </form>
                     </div>
                 </div>
@@ -1134,7 +883,7 @@
                         <form id="suggestionForm" onsubmit="sendTelegramMessage(event, 'suggestion')">
                             <div class="form-group">
                                 <label>1. Ваш NickName:</label>
-                                <input type="text" id="s_nickname" required readonly placeholder="Пример: Sakurako_Makfa">
+                                <input type="text" id="s_nickname" required placeholder="Пример: Sakurako_Makfa">
                             </div>
                             <div class="form-group">
                                 <label>2. Связь (VK / Telegram):</label>
@@ -1173,7 +922,7 @@
                         <form id="complaintForm" onsubmit="sendTelegramMessage(event, 'complaint')">
                             <div class="form-group">
                                 <label>1. Ваш NickName:</label>
-                                <input type="text" id="c_myNick" required readonly placeholder="Пример: Ivan_Ivanov">
+                                <input type="text" id="c_myNick" required placeholder="Пример: Ivan_Ivanov">
                             </div>
                             <div class="form-group">
                                 <label>2. NickName нарушителя:</label>
@@ -1199,7 +948,7 @@
                                 <div class="photo-previews" id="c_previews"></div>
                                 <button type="button" class="photo-clear" id="c_clear" onclick="clearPhotos('complaint')">Очистить все фото</button>
                             </div>
-                            <button type="submit" id="c_submitBtn" class="btn-submit" style="background-color: #e74c3c;">Отправить жалобу</button>
+                            <button type="submit" id="c_submitBtn" class="btn-submit" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">Отправить жалобу</button>
                         </form>
                     </div>
                 </div>
@@ -1214,7 +963,7 @@
                 <div class="online-title">Онлайн семьи в игре</div>
                 <div class="online-count">
                     <span class="online-dot"></span>
-                    <span id="currentFamilyOnline">45</span>
+                    <span id="sidebarFamilyOnline">45</span>
                     <span style="font-size: 14px; color: var(--xf-text-muted); font-weight: normal;">чел.</span>
                 </div>
             </div>
@@ -1239,198 +988,22 @@
 
     </div>
 
-    <!-- ===== Таблица участников форума ===== -->
-    <div class="members-wrap">
-        <div class="forum-category">
-            <div class="category-header">
-                <span>👥 Участники форума</span>
-            </div>
-            <table class="members-table">
-                <thead>
-                    <tr>
-                        <th>Участник</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="membersTableBody">
-                    <tr><td colspan="2" class="members-empty">Загрузка...</td></tr>
-                </tbody>
-            </table>
-            <div class="members-hint">💬 Переписка хранится в этом браузере и доступна, только если все заходят с одного устройства.</div>
-        </div>
-    </div>
-
-    <!-- Окно переписки -->
-    <div class="chat-overlay" id="chatOverlay">
-        <div class="chat-modal">
-            <div class="chat-header">
-                <div class="chat-header-info">
-                    <div class="member-avatar" id="chatAvatar">?</div>
-                    <div class="chat-title" id="chatTitle">Переписка</div>
-                </div>
-                <button class="btn-chat-close" onclick="closeChat()">×</button>
-            </div>
-            <div class="chat-messages" id="chatMessages"></div>
-            <form class="chat-input-row" id="chatForm" onsubmit="sendChatMessage(event)">
-                <input type="text" id="chatInput" placeholder="Напишите сообщение..." autocomplete="off" required>
-                <button type="submit">➤</button>
-            </form>
-        </div>
-    </div>
-
-    </div> <!-- /siteContent -->
+    <footer>
+        <b>M A K F A solum tu</b> • Server #81 Taganrog • Семья Black Russia
+    </footer>
 
     <script>
         // ==========================================
         // 🟢 РУЧНАЯ НАСТРОЙКА ОНЛАЙНА СЕМЬИ
+        // Замените число ниже на актуальный онлайн:
         // ==========================================
-        const CURRENT_ONLINE = 45; 
+        const CURRENT_ONLINE = 45;
         document.getElementById('currentFamilyOnline').innerText = CURRENT_ONLINE;
+        document.getElementById('sidebarFamilyOnline').innerText = CURRENT_ONLINE;
 
-        // ==========================================
-        // РЕГИСТРАЦИЯ / ВХОД (ник + пароль, хранится в этом браузере)
-        // ==========================================
-        const USERS_KEY = 'forumUsers';
-        const SESSION_KEY = 'forumCurrentUser';
-
-        function getUsers() {
-            try {
-                return JSON.parse(localStorage.getItem(USERS_KEY)) || {};
-            } catch (e) {
-                return {};
-            }
-        }
-
-        function saveUsers(users) {
-            localStorage.setItem(USERS_KEY, JSON.stringify(users));
-        }
-
-        // Хэшируем пароль (SHA-256), чтобы не хранить его в открытом виде
-        async function hashPassword(password) {
-            const data = new TextEncoder().encode(password);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-            return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
-        }
-
-        function switchAuthTab(tab) {
-            document.getElementById('tabLogin').classList.toggle('active', tab === 'login');
-            document.getElementById('tabRegister').classList.toggle('active', tab === 'register');
-            document.getElementById('loginForm').classList.toggle('active', tab === 'login');
-            document.getElementById('registerForm').classList.toggle('active', tab === 'register');
-            hideAuthError();
-        }
-
-        function showAuthError(message) {
-            const el = document.getElementById('authError');
-            el.innerText = message;
-            el.style.display = 'block';
-        }
-
-        function hideAuthError() {
-            document.getElementById('authError').style.display = 'none';
-        }
-
-        async function handleRegister(event) {
-            event.preventDefault();
-            hideAuthError();
-
-            const nick = document.getElementById('reg_nick').value.trim();
-            const pass = document.getElementById('reg_pass').value;
-            const pass2 = document.getElementById('reg_pass2').value;
-
-            if (nick.length < 3) {
-                showAuthError('Ник должен быть не короче 3 символов.');
-                return;
-            }
-            if (pass.length < 4) {
-                showAuthError('Пароль должен быть не короче 4 символов.');
-                return;
-            }
-            if (pass !== pass2) {
-                showAuthError('Пароли не совпадают.');
-                return;
-            }
-
-            const users = getUsers();
-            const nickKey = nick.toLowerCase();
-
-            if (users[nickKey]) {
-                showAuthError('Такой ник уже занят. Выберите другой или войдите.');
-                return;
-            }
-
-            const passHash = await hashPassword(pass);
-            users[nickKey] = { nick: nick, passHash: passHash };
-            saveUsers(users);
-
-            loginAs(nick);
-        }
-
-        async function handleLogin(event) {
-            event.preventDefault();
-            hideAuthError();
-
-            const nick = document.getElementById('login_nick').value.trim();
-            const pass = document.getElementById('login_pass').value;
-            const nickKey = nick.toLowerCase();
-
-            const users = getUsers();
-            const user = users[nickKey];
-
-            if (!user) {
-                showAuthError('Такого ника нет. Проверьте написание или зарегистрируйтесь.');
-                return;
-            }
-
-            const passHash = await hashPassword(pass);
-            if (passHash !== user.passHash) {
-                showAuthError('Неверный пароль.');
-                return;
-            }
-
-            loginAs(user.nick);
-        }
-
-        function loginAs(nick) {
-            localStorage.setItem(SESSION_KEY, nick);
-            showSite(nick);
-        }
-
-        function handleLogout() {
-            localStorage.removeItem(SESSION_KEY);
-            document.getElementById('siteContent').style.display = 'none';
-            document.getElementById('authScreen').style.display = 'flex';
-            document.getElementById('loginForm').reset();
-            document.getElementById('registerForm').reset();
-            switchAuthTab('login');
-        }
-
-        function showSite(nick) {
-            document.getElementById('authScreen').style.display = 'none';
-            document.getElementById('siteContent').style.display = 'block';
-            document.getElementById('currentUserLabel').innerText = nick;
-
-            // Автоподстановка ника во все формы отчётов
-            document.getElementById('b_nick').value = nick;
-            document.getElementById('s_nickname').value = nick;
-            document.getElementById('c_myNick').value = nick;
-
-            renderMembersTable();
-        }
-
-        // При загрузке страницы проверяем, не входил ли человек раньше в этом браузере
-        (function checkSession() {
-            const savedNick = localStorage.getItem(SESSION_KEY);
-            if (savedNick) {
-                showSite(savedNick);
-            }
-        })();
-
-        // ==========================================
-        // Навигация по темам форума
-        // ==========================================
         function openThread(threadId) {
             document.getElementById('forumList').style.display = 'none';
+            document.getElementById('forumHero').style.display = 'none';
             document.getElementById('infoThread').style.display = 'none';
             document.getElementById('bonusThread').style.display = 'none';
             document.getElementById('autoThread').style.display = 'none';
@@ -1447,158 +1020,7 @@
             document.getElementById('suggestThread').style.display = 'none';
             document.getElementById('complaintThread').style.display = 'none';
             document.getElementById('forumList').style.display = 'block';
-        }
-
-        // ==========================================
-        // ПЕРЕПИСКА МЕЖДУ УЧАСТНИКАМИ (таблица + чат)
-        // ==========================================
-        const MESSAGES_KEY = 'forumMessages';
-        const LASTREAD_KEY = 'forumLastRead';
-        let currentChatPartner = null;
-
-        function getMessagesStore() {
-            try { return JSON.parse(localStorage.getItem(MESSAGES_KEY)) || {}; } catch (e) { return {}; }
-        }
-        function saveMessagesStore(store) {
-            localStorage.setItem(MESSAGES_KEY, JSON.stringify(store));
-        }
-        function getLastReadStore() {
-            try { return JSON.parse(localStorage.getItem(LASTREAD_KEY)) || {}; } catch (e) { return {}; }
-        }
-        function saveLastReadStore(store) {
-            localStorage.setItem(LASTREAD_KEY, JSON.stringify(store));
-        }
-        function convKey(nickA, nickB) {
-            return [nickA.toLowerCase(), nickB.toLowerCase()].sort().join('|');
-        }
-        // Генерируем стабильный цвет для ника (для таблицы участников)
-        function nickColor(nick) {
-            let hash = 0;
-            for (let i = 0; i < nick.length; i++) {
-                hash = nick.charCodeAt(i) + ((hash << 5) - hash);
-            }
-            const hue = Math.abs(hash) % 360;
-            return `hsl(${hue}, 60%, 50%)`;
-        }
-
-        function renderMembersTable() {
-            const tbody = document.getElementById('membersTableBody');
-            const currentUser = localStorage.getItem(SESSION_KEY) || '';
-            const users = getUsers();
-            const lastReadStore = getLastReadStore();
-            const myLastRead = lastReadStore[currentUser.toLowerCase()] || {};
-            const messagesStore = getMessagesStore();
-
-            const others = Object.values(users).filter(u => u.nick.toLowerCase() !== currentUser.toLowerCase());
-
-            if (!others.length) {
-                tbody.innerHTML = '<tr><td colspan="2" class="members-empty">Пока нет других зарегистрированных участников.</td></tr>';
-                return;
-            }
-
-            tbody.innerHTML = others.map(u => {
-                const key = convKey(currentUser, u.nick);
-                const messages = messagesStore[key] || [];
-                const lastRead = myLastRead[u.nick.toLowerCase()] || 0;
-                const unread = messages.filter(m => m.from.toLowerCase() !== currentUser.toLowerCase() && m.time > lastRead).length;
-                const color = nickColor(u.nick);
-                const initial = u.nick.charAt(0).toUpperCase();
-                const safeNick = escapeHtml(u.nick);
-
-                return `
-                    <tr style="background-color: color-mix(in srgb, ${color} 12%, transparent);">
-                        <td>
-                            <div class="member-row-info">
-                                <div class="member-avatar" style="background-color: ${color};">${initial}</div>
-                                <span class="member-nick">${safeNick}</span>
-                                ${unread ? `<span class="unread-badge">${unread}</span>` : ''}
-                            </div>
-                        </td>
-                        <td style="text-align:right;">
-                            <button class="btn-message" onclick="openChat(${JSON.stringify(u.nick)})">✉ Написать</button>
-                        </td>
-                    </tr>
-                `;
-            }).join('');
-        }
-
-        function openChat(partnerNick) {
-            currentChatPartner = partnerNick;
-            const currentUser = localStorage.getItem(SESSION_KEY) || '';
-
-            document.getElementById('chatTitle').innerText = partnerNick;
-            const avatar = document.getElementById('chatAvatar');
-            avatar.innerText = partnerNick.charAt(0).toUpperCase();
-            avatar.style.backgroundColor = nickColor(partnerNick);
-
-            renderChatMessages();
-
-            // Отмечаем переписку прочитанной
-            const lastReadStore = getLastReadStore();
-            const myKey = currentUser.toLowerCase();
-            lastReadStore[myKey] = lastReadStore[myKey] || {};
-            lastReadStore[myKey][partnerNick.toLowerCase()] = Date.now();
-            saveLastReadStore(lastReadStore);
-
-            renderMembersTable();
-
-            document.getElementById('chatOverlay').classList.add('active');
-            document.getElementById('chatInput').focus();
-        }
-
-        function closeChat() {
-            document.getElementById('chatOverlay').classList.remove('active');
-            currentChatPartner = null;
-        }
-
-        function renderChatMessages() {
-            const currentUser = localStorage.getItem(SESSION_KEY) || '';
-            const key = convKey(currentUser, currentChatPartner);
-            const store = getMessagesStore();
-            const messages = store[key] || [];
-            const container = document.getElementById('chatMessages');
-
-            if (!messages.length) {
-                container.innerHTML = '<div class="chat-empty">Сообщений пока нет. Напишите первым!</div>';
-                return;
-            }
-
-            container.innerHTML = messages.map(m => {
-                const isOwn = m.from.toLowerCase() === currentUser.toLowerCase();
-                const time = new Date(m.time).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
-                return `
-                    <div class="chat-bubble ${isOwn ? 'own' : 'other'}">
-                        ${escapeHtml(m.text)}
-                        <span class="chat-bubble-time">${time}</span>
-                    </div>
-                `;
-            }).join('');
-
-            container.scrollTop = container.scrollHeight;
-        }
-
-        function sendChatMessage(event) {
-            event.preventDefault();
-            const input = document.getElementById('chatInput');
-            const text = input.value.trim();
-            if (!text || !currentChatPartner) return;
-
-            const currentUser = localStorage.getItem(SESSION_KEY) || '';
-            const key = convKey(currentUser, currentChatPartner);
-            const store = getMessagesStore();
-            store[key] = store[key] || [];
-            store[key].push({ from: currentUser, text: text, time: Date.now() });
-            saveMessagesStore(store);
-
-            // Своя же переписка автоматически считается прочитанной
-            const lastReadStore = getLastReadStore();
-            const myKey = currentUser.toLowerCase();
-            lastReadStore[myKey] = lastReadStore[myKey] || {};
-            lastReadStore[myKey][currentChatPartner.toLowerCase()] = Date.now();
-            saveLastReadStore(lastReadStore);
-
-            input.value = '';
-            renderChatMessages();
+            document.getElementById('forumHero').style.display = 'block';
         }
 
         // ==========================================
@@ -1854,13 +1276,7 @@
                 }
 
                 showAlert(statusAlert, "Успешно отправлено в Telegram!", false);
-
-                const currentNick = localStorage.getItem(SESSION_KEY) || '';
                 formEl.reset();
-                if (type === 'bonus') document.getElementById('b_nick').value = currentNick;
-                if (type === 'suggestion') document.getElementById('s_nickname').value = currentNick;
-                if (type === 'complaint') document.getElementById('c_myNick').value = currentNick;
-
                 if (type === 'bonus' || type === 'complaint') {
                     clearPhotos(type);
                 }
