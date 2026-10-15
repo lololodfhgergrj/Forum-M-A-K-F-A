@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -49,88 +50,41 @@
             box-shadow: 0 12px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,107,0,0.06);
         }
 
-        .auth-logo {
-            text-align: center;
-            margin-bottom: 22px;
-        }
+        .auth-logo { text-align: center; margin-bottom: 22px; }
+        .auth-logo .server-badge { display: inline-block; margin-bottom: 10px; }
 
-        .auth-logo .server-badge {
-            display: inline-block;
-            margin-bottom: 10px;
-        }
+        .auth-card h2 { text-align: center; color: #fff; font-size: 20px; letter-spacing: 0.5px; }
 
-        .auth-card h2 {
-            text-align: center;
-            color: #fff;
-            font-size: 20px;
-            letter-spacing: 0.5px;
-        }
-
-        .auth-card .auth-sub {
-            text-align: center;
-            color: var(--xf-text-muted);
-            font-size: 12.5px;
-            margin-top: 4px;
-            margin-bottom: 24px;
-        }
+        .auth-card .auth-sub { text-align: center; color: var(--xf-text-muted); font-size: 12.5px; margin-top: 4px; margin-bottom: 24px; }
 
         .auth-tabs {
-            display: flex;
-            margin-bottom: 22px;
-            border: 1px solid var(--xf-border);
-            border-radius: 8px;
-            overflow: hidden;
-            background-color: #141519;
+            display: flex; margin-bottom: 22px; border: 1px solid var(--xf-border);
+            border-radius: 8px; overflow: hidden; background-color: #141519;
         }
 
         .auth-tab {
-            flex: 1;
-            text-align: center;
-            padding: 11px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: bold;
-            color: var(--xf-text-muted);
+            flex: 1; text-align: center; padding: 11px; cursor: pointer;
+            font-size: 13px; font-weight: bold; color: var(--xf-text-muted);
             transition: background 0.15s, color 0.15s;
         }
 
-        .auth-tab.active {
-            color: #fff;
-            background: linear-gradient(135deg, var(--xf-accent), #e35e00);
-        }
+        .auth-tab.active { color: #fff; background: linear-gradient(135deg, var(--xf-accent), #e35e00); }
 
         .auth-form { display: none; }
         .auth-form.active { display: block; animation: fadeIn 0.2s ease; }
 
         .auth-error {
-            display: none;
-            background-color: rgba(231, 76, 60, 0.15);
-            border: 1px solid #e74c3c;
-            color: #e74c3c;
-            padding: 9px;
-            border-radius: 6px;
-            font-size: 12.5px;
-            text-align: center;
-            margin-bottom: 15px;
+            display: none; background-color: rgba(231, 76, 60, 0.15); border: 1px solid #e74c3c;
+            color: #e74c3c; padding: 9px; border-radius: 6px; font-size: 12.5px;
+            text-align: center; margin-bottom: 15px;
         }
 
-        .user-badge {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 13px;
-            color: var(--xf-text-muted);
-        }
+        .user-badge { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--xf-text-muted); }
         .user-badge b { color: #fff; }
 
         .btn-logout {
-            background-color: transparent;
-            color: var(--xf-text-muted);
-            border: 1px solid var(--xf-border);
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 11px;
+            background-color: transparent; color: var(--xf-text-muted); border: 1px solid var(--xf-border);
+            padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 11px;
         }
         .btn-logout:hover { border-color: #e74c3c; color: #e74c3c; }
 
@@ -139,9 +93,7 @@
             background: linear-gradient(180deg, #121317, #17181d);
             border-bottom: 3px solid var(--xf-accent);
             padding: 16px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; justify-content: space-between; align-items: center;
             box-shadow: 0 4px 16px rgba(0,0,0,0.5);
         }
         .logo-area { display: flex; align-items: center; gap: 15px; }
@@ -152,11 +104,30 @@
         }
         .logo-title h1 { font-size: 21px; letter-spacing: 1px; color: #fff; text-shadow: 0 0 18px rgba(255, 107, 0, 0.3); }
         .logo-title span { font-size: 12px; color: var(--xf-text-muted); }
-        .header-right { display: flex; align-items: center; gap: 20px; }
+        .header-right { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
         .server-status { font-size: 13px; color: var(--xf-text-muted); display: flex; align-items: center; gap: 6px; }
         .status-dot-live { width: 8px; height: 8px; border-radius: 50%; background-color: #2ecc71; box-shadow: 0 0 6px #2ecc71; }
 
-        .forum-nav { background-color: #18191e; padding: 12px 30px; display: flex; gap: 10px; border-bottom: 1px solid var(--xf-border); font-size: 13px; color: var(--xf-text-muted); }
+        /* Префикс админа */
+        .admin-prefix {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: #fff; padding: 2px 8px; border-radius: 4px;
+            font-size: 11px; font-weight: bold; text-transform: uppercase;
+            letter-spacing: 0.5px; animation: adminGlow 2s ease-in-out infinite;
+        }
+        @keyframes adminGlow {
+            0%, 100% { box-shadow: 0 0 4px rgba(231, 76, 60, 0.5); }
+            50% { box-shadow: 0 0 12px rgba(231, 76, 60, 0.9); }
+        }
+
+        .btn-admin {
+            background: linear-gradient(135deg, #8e44ad, #6c3483);
+            color: #fff; border: none; padding: 6px 12px; border-radius: 4px;
+            font-size: 11px; font-weight: bold; cursor: pointer;
+        }
+        .btn-admin:hover { filter: brightness(1.15); }
+
+        .forum-nav { background-color: #18191e; padding: 12px 30px; display: flex; gap: 10px; border-bottom: 1px solid var(--xf-border); font-size: 13px; color: var(--xf-text-muted); flex-wrap: wrap; }
         .forum-nav a { color: var(--xf-accent); text-decoration: none; cursor: pointer; }
         .forum-nav a:hover { text-decoration: underline; }
 
@@ -194,6 +165,28 @@
         .tag-info { background-color: rgba(52, 152, 219, 0.2); color: #3498db; }
         .tag-danger { background-color: rgba(231, 76, 60, 0.2); color: #e74c3c; }
         .tag-money { background-color: rgba(46, 204, 113, 0.2); color: #2ecc71; }
+
+        /* ===== Статусы заявок ===== */
+        .status-badge { padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: bold; display: inline-block; }
+        .status-waiting { background-color: rgba(149, 165, 166, 0.2); color: #95a5a6; border: 1px solid #95a5a6; }
+        .status-queue { background-color: rgba(52, 152, 219, 0.2); color: #3498db; border: 1px solid #3498db; }
+        .status-review { background-color: rgba(241, 196, 15, 0.2); color: #f1c40f; border: 1px solid #f1c40f; }
+        .status-approved { background-color: rgba(46, 204, 113, 0.2); color: #2ecc71; border: 1px solid #2ecc71; }
+        .status-rejected { background-color: rgba(231, 76, 60, 0.2); color: #e74c3c; border: 1px solid #e74c3c; }
+
+        .app-card { padding: 16px 20px; border-bottom: 1px solid var(--xf-border); }
+        .app-card:last-child { border-bottom: none; }
+        .app-card-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+        .app-card-type { font-size: 14px; font-weight: bold; color: #fff; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .app-card-date { font-size: 11px; color: var(--xf-text-muted); }
+        .app-card-body { font-size: 13px; color: var(--xf-text-muted); margin-bottom: 10px; }
+        .app-card-body b { color: var(--xf-text); }
+        .app-status-select {
+            padding: 6px 10px; background-color: #141519; border: 1px solid var(--xf-border);
+            border-radius: 4px; color: #fff; font-size: 12px; cursor: pointer;
+        }
+        .app-status-select:focus { border-color: var(--xf-accent); outline: none; }
+        .app-history { font-size: 11px; color: var(--xf-text-muted); margin-top: 6px; font-style: italic; }
 
         .thread-view { display: none; background-color: var(--xf-block-bg); border: 1px solid var(--xf-border); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
         .post-header { background: linear-gradient(90deg, var(--xf-block-header), #1f2027); padding: 15px 20px; border-bottom: 1px solid var(--xf-border); }
@@ -262,7 +255,6 @@
         .online-count { font-size: 28px; font-weight: bold; color: #2ecc71; display: flex; align-items: center; justify-content: center; gap: 8px; }
         .online-dot { width: 10px; height: 10px; background-color: #2ecc71; border-radius: 50%; display: inline-block; box-shadow: 0 0 8px #2ecc71; }
 
-        /* ===== Таблица участников ===== */
         .members-wrap { max-width: 1200px; margin: 0 auto 30px; padding: 0 15px; }
         .members-hint { font-size: 12px; color: var(--xf-text-muted); padding: 12px 20px; border-top: 1px solid var(--xf-border); background-color: var(--xf-header); }
         .members-table { width: 100%; border-collapse: collapse; }
@@ -277,7 +269,6 @@
         .btn-message:hover { background-color: var(--xf-accent-hover); }
         .members-empty { padding: 20px; text-align: center; color: var(--xf-text-muted); font-size: 13px; }
 
-        /* ===== Окно переписки ===== */
         .chat-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
         .chat-overlay.active { display: flex; }
         .chat-modal { background-color: var(--xf-block-bg); border: 1px solid var(--xf-border); border-radius: 10px; width: 100%; max-width: 420px; max-height: 80vh; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
@@ -302,9 +293,51 @@
 
         footer { max-width: 1200px; margin: 10px auto 30px; padding: 18px 15px; text-align: center; color: var(--xf-text-muted); font-size: 12px; border-top: 1px solid var(--xf-border); }
         footer b { color: var(--xf-accent); }
+
+        /* ===== Всплывающая подсказка (toast) ===== */
+        .toast-container { position: fixed; top: 20px; right: 20px; z-index: 2000; display: flex; flex-direction: column; gap: 10px; max-width: 340px; }
+        .toast {
+            background: linear-gradient(135deg, #1d1e24, #181920);
+            border: 1px solid #2ecc71; border-left: 4px solid #2ecc71;
+            border-radius: 8px; padding: 14px 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            animation: toastIn 0.4s ease, toastGlow 2s ease-in-out infinite;
+            cursor: pointer;
+        }
+        @keyframes toastIn { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        @keyframes toastGlow { 0%, 100% { box-shadow: 0 8px 24px rgba(0,0,0,0.5); } 50% { box-shadow: 0 8px 24px rgba(46,204,113,0.25); } }
+        .toast-title { color: #2ecc71; font-weight: bold; font-size: 14px; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+        .toast-text { color: var(--xf-text-muted); font-size: 12.5px; }
+        .toast-text b { color: var(--xf-text); }
+
+        /* ===== Админ-окно ===== */
+        .admin-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1500; align-items: center; justify-content: center; padding: 20px; }
+        .admin-overlay.active { display: flex; }
+        .admin-modal { background-color: var(--xf-block-bg); border: 1px solid #8e44ad; border-radius: 10px; width: 100%; max-width: 380px; padding: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 20px rgba(142, 68, 173, 0.2); animation: fadeIn 0.2s ease; }
+        .admin-modal h3 { color: #fff; font-size: 16px; margin-bottom: 6px; text-align: center; }
+        .admin-modal .admin-sub { color: var(--xf-text-muted); font-size: 12px; text-align: center; margin-bottom: 18px; }
+        .admin-modal input { width: 100%; padding: 10px 12px; background-color: #141519; border: 1px solid var(--xf-border); border-radius: 4px; color: #fff; font-size: 13px; margin-bottom: 12px; }
+        .admin-modal input:focus { border-color: #8e44ad; outline: none; }
+        .admin-error { display: none; color: #e74c3c; font-size: 12px; text-align: center; margin-bottom: 10px; }
+
+        /* ===== Общий чат (глобальный) ===== */
+        .global-chat-messages {
+            padding: 15px; display: flex; flex-direction: column; gap: 8px;
+            min-height: 320px; max-height: 450px; overflow-y: auto;
+            border-bottom: 1px solid var(--xf-border);
+        }
+        .global-msg { max-width: 80%; padding: 8px 12px; border-radius: 12px; font-size: 13px; word-break: break-word; background-color: #141519; color: var(--xf-text); border-bottom-left-radius: 3px; align-self: flex-start; }
+        .global-msg.own { align-self: flex-end; background-color: var(--xf-accent); color: #fff; border-bottom-left-radius: 12px; border-bottom-right-radius: 3px; }
+        .global-msg-head { display: flex; align-items: center; gap: 6px; margin-bottom: 3px; font-size: 11px; }
+        .global-msg-nick { font-weight: bold; }
+        .global-msg-time { opacity: 0.6; font-size: 10px; }
+        .global-msg-avatar { width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; color: #fff; flex-shrink: 0; }
     </style>
 </head>
 <body>
+
+    <!-- Всплывающие подсказки -->
+    <div class="toast-container" id="toastContainer"></div>
 
     <!-- ===== Экран входа / регистрации ===== -->
     <div id="authScreen">
@@ -352,6 +385,18 @@
         </div>
     </div>
 
+    <!-- ===== Админ-окно ===== -->
+    <div class="admin-overlay" id="adminOverlay">
+        <div class="admin-modal">
+            <h3>🔐 Админ-панель</h3>
+            <div class="admin-sub">Введите админ-пароль для получения прав</div>
+            <div class="admin-error" id="adminError"></div>
+            <input type="password" id="adminPassInput" placeholder="Админ-пароль" onkeydown="if(event.key==='Enter')tryAdminLogin()">
+            <button type="button" class="btn-submit" style="background: linear-gradient(135deg, #8e44ad, #6c3483); margin-bottom: 10px;" onclick="tryAdminLogin()">Получить доступ</button>
+            <button type="button" class="btn-submit" style="background: transparent; border: 1px solid var(--xf-border); color: var(--xf-text-muted);" onclick="closeAdminModal()">Отмена</button>
+        </div>
+    </div>
+
     <!-- ===== Весь форум ===== -->
     <div id="siteContent" style="display:none;">
 
@@ -366,14 +411,21 @@
         <div class="header-right">
             <div class="server-status">Статус сервера: <span class="status-dot-live"></span> <span style="color:#2ecc71; font-weight:bold;">Online</span></div>
             <div class="user-badge">
+                <span id="adminPrefixBadge" style="display:none;" class="admin-prefix">👑 АДМИН</span>
                 Вы вошли как: <b id="currentUserLabel">—</b>
+                <button class="btn-admin" id="adminBtn" onclick="openAdminModal()">🔐 Админ</button>
                 <button class="btn-logout" onclick="handleLogout()">Выйти</button>
             </div>
         </div>
     </header>
 
     <div class="forum-nav">
-        <a onclick="showForumList()">Главная</a> / <span>Сервер #81 Taganrog</span> / <span>Семьи</span> / <span style="color: #fff;">M A K F A solum tu</span>
+        <a onclick="showForumList()">Главная</a> /
+        <a onclick="showGlobalChat()">💬 Общий чат</a> /
+        <a onclick="showChatsList()">Личные чаты</a> /
+        <a onclick="showMyApplications()">Мои заявки</a> /
+        <a id="adminNavTab" style="display:none; color:#8e44ad; font-weight:bold;" onclick="showAdminPanel()">🛡 Админ-панель</a> /
+        <span>Сервер #81 Taganrog</span> / <span>Семьи</span> / <span style="color: #fff;">M A K F A solum tu</span>
     </div>
 
     <div class="family-hero" id="forumHero">
@@ -440,6 +492,77 @@
                             <div class="thread-meta">Автор: <b>Sakurako_Makfa</b> • Открыто</div>
                         </div>
                         <div class="thread-stats">Просмотров: 1,120<br>Ответов: 8</div>
+                    </div>
+
+                    <div class="thread-item" onclick="openThread('albumThread')">
+                        <div class="thread-icon">📸</div>
+                        <div class="thread-main">
+                            <div class="thread-title"><span class="tag">НОВОЕ</span> Семейный фотоальбом</div>
+                            <div class="thread-meta">Автор: <b>Sakurako_Makfa</b> • Тема пока пуста</div>
+                        </div>
+                        <div class="thread-stats">Просмотров: 0<br>Ответов: 0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ВКЛАДКА: ОБЩИЙ ЧАТ (видят все) -->
+            <div id="globalChatView" style="display:none;">
+                <div class="forum-category">
+                    <div class="category-header">
+                        <span>💬 Общий чат семьи — общаются все участники</span>
+                        <button class="btn-chat-refresh" onclick="renderGlobalChat()" style="margin-right:0;">↻ Обновить</button>
+                    </div>
+                    <div class="global-chat-messages" id="globalChatMessages"></div>
+                    <form class="chat-input-row" onsubmit="sendGlobalMessage(event)">
+                        <input type="text" id="globalChatInput" placeholder="Напишите сообщение всем..." autocomplete="off" required maxlength="300">
+                        <button type="submit">➤</button>
+                    </form>
+                    <div class="members-hint">💬 Общий чат хранится на сервере — его видят все участники с любых устройств. Он обновляется сам каждые 3 секунды.</div>
+                </div>
+            </div>
+
+            <!-- ВКЛАДКА: ЛИЧНЫЕ ЧАТЫ -->
+            <div id="chatsListView" style="display:none;">
+                <div class="forum-category">
+                    <div class="category-header">
+                        <span>💬 Личные чаты</span>
+                        <button class="btn-chat-refresh" onclick="loadChatsList()" style="margin-right:0;">↻ Обновить</button>
+                    </div>
+                    <div id="chatsListBody">
+                        <div class="members-empty">Загрузка...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ВКЛАДКА: МОИ ЗАЯВКИ -->
+            <div id="myApplicationsView" style="display:none;">
+                <div class="forum-category">
+                    <div class="category-header">
+                        <span>📋 Мои заявки</span>
+                        <button class="btn-chat-refresh" onclick="renderMyApplications()" style="margin-right:0;">↻ Обновить</button>
+                    </div>
+                    <div id="myApplicationsBody"></div>
+                    <div class="members-hint">
+                        📊 Статусы: <span class="status-badge status-waiting">⏳ Ожидание</span> →
+                        <span class="status-badge status-queue">📋 В очереди</span> →
+                        <span class="status-badge status-review">🔍 На рассмотрении</span> →
+                        <span class="status-badge status-approved">✅ Одобрено</span> /
+                        <span class="status-badge status-rejected">❌ Отказано</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ВКЛАДКА: АДМИН-ПАНЕЛЬ (видят только админы) -->
+            <div id="adminPanelView" style="display:none;">
+                <div class="forum-category" style="border-color:#8e44ad;">
+                    <div class="category-header" style="background: linear-gradient(90deg, #3d2450, #2a1a38); border-bottom-color:#8e44ad;">
+                        <span>🛡 Админ-панель — все заявки пользователей</span>
+                        <button class="btn-chat-refresh" onclick="renderAdminPanel()" style="margin-right:0;">↻ Обновить</button>
+                    </div>
+                    <div id="adminAppsBody"></div>
+                    <div class="members-hint">
+                        🛡 Вы вошли как администратор. Выберите новый статус заявки в выпадающем списке — он сразу сохранится.
+                        Обычные пользователи эту вкладку не видят.
                     </div>
                 </div>
             </div>
@@ -634,6 +757,24 @@
                     </div>
                 </div>
             </div>
+
+            <div id="albumThread" class="thread-view">
+                <div class="post-header">
+                    <button class="btn-back" onclick="showForumList()">← Назад к списку тем</button>
+                    <h2><span class="tag">НОВОЕ</span> 📸 Семейный фотоальбом</h2>
+                    <div style="font-size: 12px; color: var(--xf-text-muted);">Тема создана: Sakurako_Makfa • Раздел: Фотоальбом</div>
+                </div>
+                <div class="post-body">
+                    <div class="post-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-name">Sakurako_Makfa</div>
+                        <div class="author-role">Основатель семьи</div>
+                    </div>
+                    <div class="post-content">
+                        <p style="color: var(--xf-text-muted);">Здесь скоро появятся фотографии семьи — скрины совместных сражений, автопарка и памятных моментов. Пока тема пуста.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div>
@@ -655,6 +796,12 @@
                 <p style="margin-top: 8px; color: #fff;">• Evgenei_Robin</p>
                 <p style="color: #fff;">• Taku_Malfa</p>
                 <p style="color: #fff;">• Job_Monopoly</p>
+            </div>
+            <div class="sidebar-block" id="sidebarMyApps" style="display:none;">
+                <h4>📋 Мои заявки</h4>
+                <p>Всего заявок: <b id="sidebarAppsCount" style="color: var(--xf-accent);">0</b></p>
+                <p>Ожидают: <b id="sidebarAppsWaiting" style="color: #95a5a6;">0</b></p>
+                <p>Одобрено: <b id="sidebarAppsApproved" style="color: #2ecc71;">0</b></p>
             </div>
         </div>
     </div>
@@ -705,9 +852,414 @@
         document.getElementById('sidebarFamilyOnline').innerText = CURRENT_ONLINE;
 
         // ==========================================
+        // Система заявок
+        // ==========================================
+        const APPS_KEY = 'forumApplications';
+        const ADMIN_KEY = 'forumAdminPass';
+
+        const STATUS_MAP = {
+            waiting:  { label: '⏳ Ожидание',        class: 'status-waiting'  },
+            queue:    { label: '📋 В очереди',       class: 'status-queue'    },
+            review:   { label: '🔍 На рассмотрении', class: 'status-review'   },
+            approved: { label: '✅ Одобрено',        class: 'status-approved' },
+            rejected: { label: '❌ Отказано',        class: 'status-rejected' }
+        };
+
+        let appsCache = [];
+
+function authHeaders() {
+            const auth = getAuth();
+            const h = { 'Authorization': 'Bearer ' + (auth ? auth.token : '') };
+            const ap = localStorage.getItem(ADMIN_KEY);
+            if (ap) h['X-Admin-Password'] = ap;
+            return h;
+        }
+
+        async function fetchApplications() {
+            const admin = isAdmin();
+            const path = admin ? '/api/admin/applications' : '/api/my-applications';
+            try {
+                const res = await fetch(SERVER_URL + path, { headers: authHeaders() });
+                const data = await res.json();
+                if (res.status === 403 && admin) {
+                    // админ-пароль сменили — сбрасываем права
+                    localStorage.removeItem(ADMIN_KEY);
+                    applyAdminVisuals();
+                    appsCache = [];
+                } else {
+                    appsCache = data.ok ? data.apps : [];
+                }
+            } catch (e) { /* оставляем прошлый кэш */ }
+            return appsCache;
+        }
+
+        function getApplications() { return appsCache; }
+
+        function isAdmin() {
+            return !!localStorage.getItem(ADMIN_KEY);
+        }
+
+        function statusBadge(status) {
+            const s = STATUS_MAP[status] || STATUS_MAP.waiting;
+            return `<span class="status-badge ${s.class}">${s.label}</span>`;
+        }
+
+        function updateSidebarApps() {
+            const auth = getAuth();
+            if (!auth) return;
+            const mine = getApplications().filter(a => a.nick.toLowerCase() === auth.nick.toLowerCase());
+            const block = document.getElementById('sidebarMyApps');
+            if (mine.length) {
+                block.style.display = 'block';
+                document.getElementById('sidebarAppsCount').innerText = mine.length;
+                document.getElementById('sidebarAppsWaiting').innerText = mine.filter(a => ['waiting','queue','review'].includes(a.status)).length;
+                document.getElementById('sidebarAppsApproved').innerText = mine.filter(a => a.status === 'approved').length;
+            } else {
+                block.style.display = 'none';
+            }
+        }
+
+        async function renderMyApplications() {
+            await fetchApplications();
+            updateSidebarApps();
+            const body = document.getElementById('myApplicationsBody');
+            const auth = getAuth();
+            if (!auth) return;
+
+            let apps = getApplications();
+
+            // Обычный пользователь видит только свои заявки, админ — все
+            if (!isAdmin()) {
+                apps = apps.filter(a => a.nick.toLowerCase() === auth.nick.toLowerCase());
+            }
+
+            if (!apps.length) {
+                body.innerHTML = '<div class="members-empty">Заявок пока нет. Подайте заявку через форму в разделе премий, предложений или жалоб.</div>';
+                return;
+            }
+
+            const typeLabels = { bonus: '💰 Заявка на премию', suggestion: '💡 Предложение', complaint: '⚠️ Жалоба' };
+
+            body.innerHTML = apps.map(app => {
+                const time = new Date(app.createdAt).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+                let details = '';
+                if (app.type === 'bonus') {
+                    details = `Сумма премии: <b>${escapeHtml(app.amount || '—')}</b> • Дата заявки: ${escapeHtml(app.date || '—')}`;
+                } else if (app.type === 'suggestion') {
+                    details = `Предложение: <b>${escapeHtml(app.suggestion || '—')}</b>`;
+                } else if (app.type === 'complaint') {
+                    details = `На игрока: <b>${escapeHtml(app.offenderNick || '—')}</b> • Время: ${escapeHtml(app.time || '—')}`;
+                }
+
+                // Админ может менять статус через select
+                let statusControl = statusBadge(app.status);
+                if (isAdmin()) {
+                    const options = Object.keys(STATUS_MAP).map(k =>
+                        `<option value="${k}" ${k === app.status ? 'selected' : ''}>${STATUS_MAP[k].label}</option>`
+                    ).join('');
+                    statusControl = `<select class="app-status-select" onchange="changeAppStatus('${app.id}', this.value)">${options}</select>`;
+                }
+
+                const history = (app.statusHistory || []).map(h =>
+                    `${STATUS_MAP[h.status] ? STATUS_MAP[h.status].label : h.status} — ${new Date(h.time).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}`
+                ).join(' → ');
+
+                return `
+                    <div class="app-card">
+                        <div class="app-card-header">
+                            <div class="app-card-type">${typeLabels[app.type] || '📄 Заявка'} ${isAdmin() ? '<span class="tag tag-info">от ' + escapeHtml(app.nick) + '</span>' : ''}</div>
+                            ${statusControl}
+                        </div>
+                        <div class="app-card-body">${details}</div>
+                        <div class="app-card-date">🕐 Подана: ${time} • №${app.id.slice(-6).toUpperCase()}</div>
+                        ${history ? `<div class="app-history">📜 История: ${history}</div>` : ''}
+                    </div>`;
+            }).join('');
+        }
+
+        async function changeAppStatus(appId, newStatus) {
+            if (!isAdmin()) return;
+            try {
+                const res = await fetch(SERVER_URL + '/api/admin/status', {
+                    method: 'POST',
+                    headers: Object.assign({ 'Content-Type': 'application/json' }, authHeaders()),
+                    body: JSON.stringify({ id: appId, status: newStatus })
+                });
+                const data = await res.json();
+                if (!data.ok) { alert(data.error || 'Ошибка'); return; }
+            } catch (e) { alert('Ошибка сети.'); return; }
+            if (document.getElementById('adminPanelView').style.display !== 'none') await renderAdminPanel();
+            else await renderMyApplications();
+            showToast('📋 Статус обновлён', `Заявка №${appId.slice(-6).toUpperCase()} теперь: <b>${STATUS_MAP[newStatus].label}</b>`, false);
+        }
+
+        function showMyApplications() {
+            hideAllMainViews();
+            document.getElementById('myApplicationsView').style.display = 'block';
+            renderMyApplications();
+        }
+
+        // ==========================================
+        // 🛡 АДМИН-ПАНЕЛЬ (отдельная страница только для админов)
+        // ==========================================
+        function showAdminPanel() {
+            if (!isAdmin()) {
+                showToast('⛔ Доступ запрещён', 'Эта страница доступна только администраторам.', false);
+                return;
+            }
+            hideAllMainViews();
+            document.getElementById('adminPanelView').style.display = 'block';
+            renderAdminPanel();
+        }
+
+        async function renderAdminPanel() {
+            await fetchApplications();
+            const body = document.getElementById('adminAppsBody');
+            if (!isAdmin()) {
+                body.innerHTML = '<div class="members-empty">⛔ Доступ запрещён.</div>';
+                return;
+            }
+
+            const apps = getApplications(); // админ видит ВСЕ заявки
+
+            if (!apps.length) {
+                body.innerHTML = '<div class="members-empty">Заявок пока нет.</div>';
+                return;
+            }
+
+            const typeLabels = { bonus: '💰 Премия', suggestion: '💡 Предложение', complaint: '⚠️ Жалоба' };
+
+            // Счётчики по статусам
+            const counts = { waiting: 0, queue: 0, review: 0, approved: 0, rejected: 0 };
+            apps.forEach(a => { if (counts[a.status] !== undefined) counts[a.status]++; });
+
+            body.innerHTML = `
+                <div style="padding: 12px 20px; border-bottom: 1px solid var(--xf-border); background-color: var(--xf-header); display:flex; gap:8px; flex-wrap:wrap; font-size:12px;">
+                    <span class="status-badge status-waiting">⏳ ${counts.waiting}</span>
+                    <span class="status-badge status-queue">📋 ${counts.queue}</span>
+                    <span class="status-badge status-review">🔍 ${counts.review}</span>
+                    <span class="status-badge status-approved">✅ ${counts.approved}</span>
+                    <span class="status-badge status-rejected">❌ ${counts.rejected}</span>
+                </div>
+                ` + apps.map(app => {
+                const time = new Date(app.createdAt).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+
+                let details = '';
+                if (app.type === 'bonus') {
+                    details = `💵 Сумма: <b>${escapeHtml(app.amount || '—')}</b> • Дата: ${escapeHtml(app.date || '—')}`;
+                } else if (app.type === 'suggestion') {
+                    details = `💡 Предложение: <b>${escapeHtml(app.suggestion || '—')}</b>`;
+                } else if (app.type === 'complaint') {
+                    details = `⚠️ На игрока: <b>${escapeHtml(app.offenderNick || '—')}</b> • Время: ${escapeHtml(app.time || '—')}`;
+                }
+
+                const options = Object.keys(STATUS_MAP).map(k =>
+                    `<option value="${k}" ${k === app.status ? 'selected' : ''}>${STATUS_MAP[k].label}</option>`
+                ).join('');
+
+                const history = (app.statusHistory || []).map(h =>
+                    `${STATUS_MAP[h.status] ? STATUS_MAP[h.status].label : h.status} — ${new Date(h.time).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}`
+                ).join(' → ');
+
+                return `
+                    <div class="app-card">
+                        <div class="app-card-header">
+                            <div class="app-card-type">${typeLabels[app.type] || '📄 Заявка'} <span class="tag tag-info">от ${escapeHtml(app.nick)}</span></div>
+                            <select class="app-status-select" onchange="changeAppStatus('${app.id}', this.value)">${options}</select>
+                        </div>
+                        <div class="app-card-body">${details}</div>
+                        <div class="app-card-date">🕐 Подана: ${time} • №${app.id.slice(-6).toUpperCase()}</div>
+                        ${history ? `<div class="app-history">📜 История: ${history}</div>` : ''}
+                    </div>`;
+            }).join('');
+        }
+
+        // ==========================================
+        // 💬 ОБЩИЙ ЧАТ (видят и пишут все пользователи)
+        // ==========================================
+        let globalChatInterval = null;
+        let globalLastCount = -1;
+
+        async function renderGlobalChat() {
+            const container = document.getElementById('globalChatMessages');
+            const auth = getAuth();
+            if (!auth) return;
+            let messages = [];
+            try {
+                const res = await fetch(SERVER_URL + '/api/global-chat', { headers: authHeaders() });
+                const data = await res.json();
+                messages = data.messages || [];
+            } catch (e) {
+                container.innerHTML = '<div class="chat-empty">Не удалось загрузить чат.</div>';
+                return;
+            }
+
+            if (!messages.length) {
+                container.innerHTML = '<div class="chat-empty">Сообщений пока нет. Напишите первым! 👋</div>';
+                globalLastCount = 0;
+                return;
+            }
+
+            container.innerHTML = messages.map(m => {
+                const isOwn = m.nick.toLowerCase() === auth.nick.toLowerCase();
+                const time = new Date(m.time).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+                const color = nickColor(m.nick);
+                const avatar = `<span class="global-msg-avatar" style="background-color:${color};">${escapeHtml(m.nick.charAt(0).toUpperCase())}</span>`;
+                return `
+                    <div class="global-msg ${isOwn ? 'own' : ''}">
+                        <div class="global-msg-head" style="${isOwn ? 'justify-content:flex-end;' : ''}">
+                            ${isOwn ? '' : avatar}
+                            <span class="global-msg-nick" style="color:${isOwn ? '#fff' : color};">${escapeHtml(m.nick)}</span>
+                            ${isOwn ? avatar : ''}
+                            <span class="global-msg-time">${time}</span>
+                        </div>
+                        <div>${escapeHtml(m.text)}</div>
+                    </div>`;
+            }).join('');
+            if (messages.length !== globalLastCount) container.scrollTop = container.scrollHeight;
+            globalLastCount = messages.length;
+        }
+
+        async function sendGlobalMessage(event) {
+            event.preventDefault();
+            const auth = getAuth();
+            if (!auth) return;
+
+            const input = document.getElementById('globalChatInput');
+            const text = input.value.trim();
+            if (!text) return;
+            input.value = '';
+
+            try {
+                const res = await fetch(SERVER_URL + '/api/global-chat', {
+                    method: 'POST',
+                    headers: Object.assign({ 'Content-Type': 'application/json' }, authHeaders()),
+                    body: JSON.stringify({ text })
+                });
+                const data = await res.json();
+                if (!data.ok) alert(data.error || 'Не удалось отправить.');
+            } catch (e) { alert('Ошибка сети при отправке.'); }
+            renderGlobalChat();
+        }
+
+        function showGlobalChat() {
+            hideAllMainViews();
+            document.getElementById('globalChatView').style.display = 'block';
+            document.getElementById('forumHero').style.display = 'block';
+            renderGlobalChat();
+
+            // Автообновление каждые 3 секунды, пока вкладка открыта
+            if (globalChatInterval) clearInterval(globalChatInterval);
+            globalChatInterval = setInterval(() => {
+                if (document.getElementById('globalChatView').style.display === 'none') {
+                    clearInterval(globalChatInterval);
+                    globalChatInterval = null;
+                    return;
+                }
+                renderGlobalChat();
+            }, 3000);
+        }
+
+        // ==========================================
+        // Переключение видимости основных блоков
+        // ==========================================
+        function hideAllMainViews() {
+            ['infoThread','bonusThread','autoThread','suggestThread','complaintThread','albumThread'].forEach(id => document.getElementById(id).style.display = 'none');
+            document.getElementById('forumList').style.display = 'none';
+            document.getElementById('chatsListView').style.display = 'none';
+            document.getElementById('myApplicationsView').style.display = 'none';
+            document.getElementById('adminPanelView').style.display = 'none';
+            document.getElementById('globalChatView').style.display = 'none';
+            document.getElementById('forumHero').style.display = 'none';
+        }
+
+        // ==========================================
+        // Всплывающая подсказка (toast)
+        // ==========================================
+        function showToast(title, text, autoOpenApps) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `<div class="toast-title">${title}</div><div class="toast-text">${text}</div>`;
+            toast.addEventListener('click', () => {
+                showMyApplications();
+                toast.remove();
+            });
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.transition = 'opacity 0.5s, transform 0.5s';
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateX(120%)';
+                setTimeout(() => toast.remove(), 500);
+            }, 8000);
+        }
+
+        // ==========================================
+        // Админ-панель (вход по паролю)
+        // ==========================================
+        function openAdminModal() {
+            if (isAdmin()) {
+                // Уже админ — предлагаем выйти из админки
+                if (confirm('Вы уже администратор. Выйти из режима админа?')) {
+                    localStorage.removeItem(ADMIN_KEY);
+                    applyAdminVisuals();
+                    renderMyApplications();
+                    showForumList();
+                }
+                return;
+            }
+            document.getElementById('adminOverlay').classList.add('active');
+            document.getElementById('adminPassInput').value = '';
+            document.getElementById('adminError').style.display = 'none';
+            setTimeout(() => document.getElementById('adminPassInput').focus(), 100);
+        }
+
+        function closeAdminModal() {
+            document.getElementById('adminOverlay').classList.remove('active');
+        }
+
+        async function tryAdminLogin() {
+            const pass = document.getElementById('adminPassInput').value;
+            const err = document.getElementById('adminError');
+            try {
+                const res = await fetch(SERVER_URL + '/api/admin/check', { headers: { 'X-Admin-Password': pass } });
+                const data = await res.json();
+                if (data.ok) {
+                    localStorage.setItem(ADMIN_KEY, pass);
+                    closeAdminModal();
+                    applyAdminVisuals();
+                    showToast('👑 Админ-режим активирован', 'Теперь вам доступна вкладка <b>«🛡 Админ-панель»</b> в меню навигации.', false);
+                    showAdminPanel();
+                } else {
+                    err.innerText = '❌ Неверный пароль!';
+                    err.style.display = 'block';
+                }
+            } catch (e) {
+                err.innerText = 'Не удалось связаться с сервером.';
+                err.style.display = 'block';
+            }
+        }
+
+        function applyAdminVisuals() {
+            const badge = document.getElementById('adminPrefixBadge');
+            const btn = document.getElementById('adminBtn');
+            const navTab = document.getElementById('adminNavTab');
+            if (isAdmin()) {
+                badge.style.display = 'inline-block';
+                btn.innerText = '🛡️ Админ ✓';
+                navTab.style.display = 'inline'; // 👈 вкладка видна только админу
+            } else {
+                badge.style.display = 'none';
+                btn.innerText = '🔐 Админ';
+                navTab.style.display = 'none'; // 👈 прячем от обычных пользователей
+            }
+        }
+
+        // ==========================================
         // Авторизация
         // ==========================================
-        const AUTH_KEY = 'forumAuth'; // { token, nick }
+        const AUTH_KEY = 'forumAuth';
 
         function getAuth() {
             try { return JSON.parse(localStorage.getItem(AUTH_KEY)); } catch (e) { return null; }
@@ -787,6 +1339,7 @@
 
         function handleLogout() {
             clearAuth();
+            if (globalChatInterval) { clearInterval(globalChatInterval); globalChatInterval = null; }
             document.getElementById('siteContent').style.display = 'none';
             document.getElementById('authScreen').style.display = 'flex';
             document.getElementById('loginForm').reset();
@@ -801,7 +1354,10 @@
             document.getElementById('b_nick').value = nick;
             document.getElementById('s_nickname').value = nick;
             document.getElementById('c_myNick').value = nick;
+            applyAdminVisuals();
+            fetchApplications().then(updateSidebarApps);
             loadMembers();
+            showForumList();
         }
 
         (function checkSession() {
@@ -810,15 +1366,58 @@
         })();
 
         function openThread(threadId) {
-            document.getElementById('forumList').style.display = 'none';
-            document.getElementById('forumHero').style.display = 'none';
-            ['infoThread','bonusThread','autoThread','suggestThread','complaintThread'].forEach(id => document.getElementById(id).style.display = 'none');
+            hideAllMainViews();
             document.getElementById(threadId).style.display = 'block';
         }
         function showForumList() {
-            ['infoThread','bonusThread','autoThread','suggestThread','complaintThread'].forEach(id => document.getElementById(id).style.display = 'none');
+            hideAllMainViews();
             document.getElementById('forumList').style.display = 'block';
             document.getElementById('forumHero').style.display = 'block';
+        }
+
+        function showChatsList() {
+            hideAllMainViews();
+            document.getElementById('chatsListView').style.display = 'block';
+            loadChatsList();
+        }
+
+        async function loadChatsList() {
+            const body = document.getElementById('chatsListBody');
+            const auth = getAuth();
+            if (!auth) return;
+            body.innerHTML = '<div class="members-empty">Загрузка...</div>';
+
+            try {
+                const res = await fetch(SERVER_URL + '/api/inbox?nick=' + encodeURIComponent(auth.nick), { headers: authHeaders() });
+                const data = await res.json();
+                const inbox = (data.inbox || []).slice().sort((a, b) => (b.lastMessageTime || 0) - (a.lastMessageTime || 0));
+
+                if (!inbox.length) {
+                    body.innerHTML = '<div class="members-empty">У вас пока нет переписок. Откройте список участников внизу страницы и напишите кому-нибудь первым.</div>';
+                    return;
+                }
+
+                body.innerHTML = inbox.map(item => {
+                    const timeStr = item.lastMessageTime
+                        ? new Date(item.lastMessageTime).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })
+                        : '';
+                    return `
+                        <div class="thread-item" data-nick="${escapeHtml(item.partner)}">
+                            <div class="member-avatar" style="background-color: ${nickColor(item.partner)}; margin-right: 2px;">${item.partner.charAt(0).toUpperCase()}</div>
+                            <div class="thread-main">
+                                <div class="thread-title">${escapeHtml(item.partner)} ${item.unread ? '<span class="unread-dot" title="Новое сообщение"></span>' : ''}</div>
+                                <div class="thread-meta">Последнее сообщение: ${timeStr || '—'}</div>
+                            </div>
+                            <div class="thread-stats"></div>
+                        </div>`;
+                }).join('');
+
+                body.querySelectorAll('.thread-item').forEach(el => {
+                    el.addEventListener('click', () => openChat(el.dataset.nick));
+                });
+            } catch (e) {
+                body.innerHTML = '<div class="members-empty">Не удалось загрузить переписки.</div>';
+            }
         }
 
         // ==========================================
@@ -840,7 +1439,7 @@
             try {
                 const [membersRes, inboxRes] = await Promise.all([
                     fetch(SERVER_URL + '/api/members'),
-                    fetch(SERVER_URL + '/api/inbox?nick=' + encodeURIComponent(auth.nick))
+                    fetch(SERVER_URL + '/api/inbox?nick=' + encodeURIComponent(auth.nick), { headers: authHeaders() })
                 ]);
                 const membersData = await membersRes.json();
                 const inboxData = await inboxRes.json();
@@ -869,10 +1468,14 @@
                                 </div>
                             </td>
                             <td style="text-align:right;">
-                                <button class="btn-message" onclick="openChat(${JSON.stringify(nick)})">✉ Написать</button>
+                                <button class="btn-message" data-nick="${escapeHtml(nick)}">✉ Написать</button>
                             </td>
                         </tr>`;
                 }).join('');
+
+                tbody.querySelectorAll('.btn-message').forEach(btn => {
+                    btn.addEventListener('click', () => openChat(btn.dataset.nick));
+                });
             } catch (e) {
                 tbody.innerHTML = '<tr><td colspan="2" class="members-empty">Не удалось загрузить список участников.</td></tr>';
             }
@@ -891,6 +1494,7 @@
             await renderChatMessages();
             await markRead(partnerNick);
             loadMembers();
+            if (document.getElementById('chatsListView').style.display !== 'none') loadChatsList();
         }
 
         function closeChat() {
@@ -905,7 +1509,7 @@
             container.innerHTML = '<div class="chat-empty">Загрузка...</div>';
 
             try {
-                const res = await fetch(SERVER_URL + '/api/messages?me=' + encodeURIComponent(auth.nick) + '&partner=' + encodeURIComponent(currentChatPartner));
+                const res = await fetch(SERVER_URL + '/api/messages?me=' + encodeURIComponent(auth.nick) + '&partner=' + encodeURIComponent(currentChatPartner), { headers: authHeaders() });
                 const data = await res.json();
                 const messages = data.messages || [];
 
@@ -917,7 +1521,7 @@
                 container.innerHTML = messages.map(m => {
                     const isOwn = m.from.toLowerCase() === auth.nick.toLowerCase();
                     const time = new Date(m.time).toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
-                    return `<div class="chat-bubble ${isOwn ? 'own' : 'other'}">${m.text}<span class="chat-bubble-time">${time}</span></div>`;
+                    return `<div class="chat-bubble ${isOwn ? 'own' : 'other'}">${escapeHtml(m.text)}<span class="chat-bubble-time">${time}</span></div>`;
                 }).join('');
                 container.scrollTop = container.scrollHeight;
             } catch (e) {
@@ -963,6 +1567,14 @@
                 alert('Ошибка сети при отправке сообщения.');
             }
         }
+
+        // Автообновление админ-панели каждые 10 секунд
+        setInterval(() => {
+            const view = document.getElementById('adminPanelView');
+            if (view && view.style.display !== 'none' && isAdmin() && document.activeElement.tagName !== 'SELECT') {
+                renderAdminPanel();
+            }
+        }, 10000);
 
         function escapeHtml(v) {
             return String(v || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -1057,6 +1669,8 @@
             const formData = new FormData();
             formData.append('type', type);
 
+            let appData = { type };
+
             if (type === 'bonus') {
                 submitBtn = document.getElementById('b_submitBtn'); statusAlert = document.getElementById('bonusAlert'); formEl = document.getElementById('bonusForm');
                 formData.append('honeypot', document.getElementById('b_website').value);
@@ -1064,6 +1678,9 @@
                 formData.append('date', document.getElementById('b_date').value);
                 formData.append('amount', document.getElementById('b_amount').value);
                 formData.append('proof', document.getElementById('b_proof').value.trim());
+                appData.nick = document.getElementById('b_nick').value;
+                appData.date = document.getElementById('b_date').value;
+                appData.amount = document.getElementById('b_amount').value;
                 const files = mediaStore.bonus;
                 if (!document.getElementById('b_proof').value.trim() && files.length === 0) { showAlert(statusAlert, "Укажите ссылку или прикрепите файл.", true); return; }
                 files.forEach(f => formData.append('media', f));
@@ -1073,6 +1690,8 @@
                 formData.append('nickname', document.getElementById('s_nickname').value);
                 formData.append('contact', document.getElementById('s_contact').value);
                 formData.append('suggestion', document.getElementById('s_text').value);
+                appData.nick = document.getElementById('s_nickname').value;
+                appData.suggestion = document.getElementById('s_text').value;
             } else if (type === 'complaint') {
                 submitBtn = document.getElementById('c_submitBtn'); statusAlert = document.getElementById('complaintAlert'); formEl = document.getElementById('complaintForm');
                 formData.append('honeypot', document.getElementById('c_website').value);
@@ -1081,6 +1700,9 @@
                 formData.append('reason', document.getElementById('c_reason').value);
                 formData.append('time', document.getElementById('c_time').value);
                 formData.append('proof', document.getElementById('c_proof').value.trim());
+                appData.nick = document.getElementById('c_myNick').value;
+                appData.offenderNick = document.getElementById('c_offenderNick').value;
+                appData.time = document.getElementById('c_time').value;
                 const files = mediaStore.complaint;
                 if (!document.getElementById('c_proof').value.trim() && files.length === 0) { showAlert(statusAlert, "Укажите ссылку или прикрепите файл.", true); return; }
                 files.forEach(f => formData.append('media', f));
@@ -1094,16 +1716,29 @@
             submitBtn.innerText = "Отправка..."; submitBtn.disabled = true;
 
             try {
-                const response = await fetch(SERVER_URL + '/api/submit', { method: 'POST', body: formData });
+                const response = await fetch(SERVER_URL + '/api/submit', { method: 'POST', body: formData, headers: authHeaders() });
                 const result = await response.json();
                 if (!response.ok || !result.ok) throw new Error(result.error || 'Ошибка сервера');
                 lastSubmitAt[type] = Date.now();
+
+                // ✅ Сохраняем заявку со статусом «Ожидание»
+                await fetchApplications();
+                updateSidebarApps();
+
                 showAlert(statusAlert, "Успешно отправлено!", false);
                 formEl.reset();
                 if (type === 'bonus') document.getElementById('b_nick').value = getAuth()?.nick || '';
                 if (type === 'suggestion') document.getElementById('s_nickname').value = getAuth()?.nick || '';
                 if (type === 'complaint') document.getElementById('c_myNick').value = getAuth()?.nick || '';
                 if (type === 'bonus' || type === 'complaint') clearMedia(type);
+
+                // 🔔 Красивая подсказка, где находится заявка
+                const typeNames = { bonus: 'на премию', suggestion: 'с предложением', complaint: 'с жалобой' };
+                showToast(
+                    '✅ Заявка успешно подана!',
+                    `Ваша заявка ${typeNames[type]} сохранена и находится во вкладке <b>«Мои заявки»</b> (в меню навигации).<br>Текущий статус: <b>⏳ Ожидание</b>.<br><span style="color:#2ecc71;">Нажмите, чтобы перейти →</span>`,
+                    true
+                );
             } catch (error) {
                 showAlert(statusAlert, error.message || "Ошибка при отправке.", true);
             } finally {
